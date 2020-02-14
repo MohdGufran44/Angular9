@@ -1,0 +1,22 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Math</th>
+        <th>English</th>
+        <th>Physics</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let mark of Marks">
+      <tr>
+        <td> {{mark.id}}</td>
+        <td> {{mark.math}}</td>
+        <td > {{mark.english}}</td>
+        <td >{{mark.physics}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngFor="let stud of student">
+    {{stud.name}}
+  </div>
