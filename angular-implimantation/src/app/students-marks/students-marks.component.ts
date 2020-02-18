@@ -1,6 +1,6 @@
-import { StudentsComponent } from './../students/students.component';
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ServicDataService} from "../servic-data.service";
 
 @Component({
   selector: 'app-students-marks',
@@ -9,19 +9,27 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StudentsMarksComponent implements OnInit {
 
-  @Input() student: StudentsComponent;
-
-  Marks =[
-    {id : 101,math : 66, english : 77 , physics : 88 },
-    {id : 102,math : 94, english : 58 , physics : 89 },
-    {id : 103,math : 46, english : 98 , physics : 48 },
-    {id : 104,math : 84, english : 39 , physics : 71 }
-  ];
-  constructor() { }
+  Marks : any;
+  sid : number;
+  english : number;
+  math : number;
+  physic : number
+  constructor(private activeRoute : ActivatedRoute , private marksService : ServicDataService) {
+    this.Marks = marksService.getMarks();
+  }
 
   ngOnInit() {
+    this.activeRoute.paramMap.subscribe((params : ParamMap)=>{
+      this.sid = parseInt(params.get('id'));
+      console.log(this.sid);
+      for(let mark of this.Marks){
+        if(mark.id == this.sid){
+          this.english = mark.english;
+          this.math = mark.math;
+          this.physic = mark.physics;
+        }
+      }
+    });
   }
-  
 
 }
-console.log(StudentsComponent);

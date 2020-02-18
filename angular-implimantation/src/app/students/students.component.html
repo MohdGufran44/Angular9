@@ -12,7 +12,7 @@
         <td> {{student.id}}</td>
         <td> {{student.name}}</td>
         <td style="width: 350px;"> {{student.address.dist}}, {{student.address.state}},  {{student.address.zip}}</td>
-        <td ><button class="btn-info"(click)="viewInfo(id)">view</button> <button class="btn-secondary" style="margin-left: 15px;"(click)="editDetail(id)">Edit</button></td>
+        <td ><button class="btn-info"(click)="viewDetail(student.id)">view</button> <button class="btn-secondary" style="margin-left: 15px;"(click)="editPage(student.id)">Edit</button></td>
       </tr>
     </tbody>
   </table>

@@ -7,16 +7,12 @@
         <th>Physics</th>
       </tr>
     </thead>
-    <tbody *ngFor="let mark of Marks">
+    <tbody>
       <tr>
-        <td> {{mark.id}}</td>
-        <td> {{mark.math}}</td>
-        <td > {{mark.english}}</td>
-        <td >{{mark.physics}}</td>
+        <td>{{sid}}</td>
+        <td>{{math}}</td>
+        <td>{{english}}</td>
+        <td>{{physic}}</td>
       </tr>
     </tbody>
   </table>
-
-  <div *ngFor="let stud of student">
-    {{stud.name}}
-  </div>
